@@ -14,7 +14,7 @@ const defaultOptions = {
 }
 let boxs;
 let size = defaultOptions.size;
-let speed = defaultOptions.speed;
+let speed = (10 * 75) - (defaultOptions.speed * 75) + 50;
 let isOptions = false;
 let order = [];
 let orderPlayer = [];
