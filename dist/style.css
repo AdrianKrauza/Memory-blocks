@@ -1,0 +1,335 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+* {
+  font-family: "Press Start 2P", cursive;
+  color: lightGreen;
+}
+
+body {
+  background: black;
+}
+
+.container {
+  margin: auto;
+}
+
+.boxs {
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.box {
+  position: relative;
+  border: 1px solid lightGreen;
+  cursor: pointer;
+  margin: 8px;
+  transition: box-shadow 0.2s, width 1s, transform 0.5s, opacity 0.5s;
+}
+.box--active {
+  background: lightGreen;
+}
+.box--hide {
+  opacity: 0;
+  transform: scale(0);
+  z-index: -1;
+}
+
+.score {
+  margin: 100px 0 10px 0;
+  text-align: center;
+  text-shadow: 0px 0px 0px 1px white;
+  transition: opacity 0.5s;
+}
+.score--active:after {
+  content: attr(data-text);
+  position: absolute;
+  left: calc(50% - 115px);
+  color: lightGreen;
+  background: black;
+  animation: noise-anim 2s infinite linear alternate-reverse;
+}
+.score--hide {
+  opacity: 0;
+}
+.score--hide:after {
+  content: attr(data-text);
+  position: absolute;
+  left: calc(50% - 115px);
+  color: lightGreen;
+  background: black;
+  animation: noise-anim 0.4s infinite linear alternate-reverse;
+}
+
+.button {
+  position: relative;
+  width: calc((100% / 2) - 8px);
+  border: 4px solid lightGreen;
+  background: none;
+  color: lightGreen;
+  font-size: 25px;
+  margin-top: 20px;
+  padding: 10px 0;
+  transition: text-shadow 0.2s;
+}
+.button:hover {
+  text-shadow: -1px -1px 0px white;
+}
+.button:hover:after, .button--active:after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  color: lightGreen;
+  background: black;
+  animation: noise-anim 2s infinite linear alternate-reverse;
+}
+.button[data-text~="START"]:after, .button[data-text~="RESET"]:after, .button[data-text~="CLOSE"]:after {
+  left: 27%;
+}
+.button[data-text~="OPTIONS"]:after, .button[data-text~="DEFAULT"]:after {
+  left: 18%;
+}
+
+@keyframes noise-anim {
+  0% {
+    clip-path: inset(67% 0 11% 0);
+    transform: scale(67 / 50);
+  }
+  5% {
+    clip-path: inset(24% 0 56% 0);
+    transform: scale(24 / 50);
+  }
+  10% {
+    clip-path: inset(3% 0 72% 0);
+    transform: scale(3 / 50);
+  }
+  15% {
+    clip-path: inset(78% 0 13% 0);
+    transform: scale(78 / 50);
+  }
+  20% {
+    clip-path: inset(16% 0 68% 0);
+    transform: scale(16 / 50);
+  }
+  25% {
+    clip-path: inset(33% 0 20% 0);
+    transform: scale(33 / 50);
+  }
+  30% {
+    clip-path: inset(5% 0 1% 0);
+    transform: scale(5 / 50);
+  }
+  35% {
+    clip-path: inset(8% 0 9% 0);
+    transform: scale(8 / 50);
+  }
+  40% {
+    clip-path: inset(41% 0 2% 0);
+    transform: scale(41 / 50);
+  }
+  45% {
+    clip-path: inset(43% 0 25% 0);
+    transform: scale(43 / 50);
+  }
+  50% {
+    clip-path: inset(49% 0 36% 0);
+    transform: scale(49 / 50);
+  }
+  55% {
+    clip-path: inset(31% 0 5% 0);
+    transform: scale(31 / 50);
+  }
+  60% {
+    clip-path: inset(52% 0 25% 0);
+    transform: scale(52 / 50);
+  }
+  65% {
+    clip-path: inset(40% 0 33% 0);
+    transform: scale(40 / 50);
+  }
+  70% {
+    clip-path: inset(4% 0 87% 0);
+    transform: scale(4 / 50);
+  }
+  75% {
+    clip-path: inset(67% 0 30% 0);
+    transform: scale(67 / 50);
+  }
+  80% {
+    clip-path: inset(59% 0 8% 0);
+    transform: scale(59 / 50);
+  }
+  85% {
+    clip-path: inset(30% 0 37% 0);
+    transform: scale(30 / 50);
+  }
+  90% {
+    clip-path: inset(31% 0 31% 0);
+    transform: scale(31 / 50);
+  }
+  95% {
+    clip-path: inset(20% 0 79% 0);
+    transform: scale(20 / 50);
+  }
+  100% {
+    clip-path: inset(69% 0 12% 0);
+    transform: scale(69 / 50);
+  }
+}
+@keyframes box-anim {
+  0% {
+    clip-path: inset(61% 0 29% 0);
+  }
+  5% {
+    clip-path: inset(88% 0 11% 0);
+  }
+  10% {
+    clip-path: inset(62% 0 28% 0);
+  }
+  15% {
+    clip-path: inset(33% 0 31% 0);
+  }
+  20% {
+    clip-path: inset(17% 0 56% 0);
+  }
+  25% {
+    clip-path: inset(5% 0 37% 0);
+  }
+  30% {
+    clip-path: inset(17% 0 32% 0);
+  }
+  35% {
+    clip-path: inset(22% 0 11% 0);
+  }
+  40% {
+    clip-path: inset(70% 0 30% 0);
+  }
+  45% {
+    clip-path: inset(19% 0 58% 0);
+  }
+  50% {
+    clip-path: inset(90% 0 3% 0);
+  }
+  55% {
+    clip-path: inset(61% 0 21% 0);
+  }
+  60% {
+    clip-path: inset(34% 0 42% 0);
+  }
+  65% {
+    clip-path: inset(12% 0 54% 0);
+  }
+  70% {
+    clip-path: inset(80% 0 13% 0);
+  }
+  75% {
+    clip-path: inset(38% 0 23% 0);
+  }
+  80% {
+    clip-path: inset(29% 0 6% 0);
+  }
+  85% {
+    clip-path: inset(75% 0 14% 0);
+  }
+  90% {
+    clip-path: inset(42% 0 28% 0);
+  }
+  95% {
+    clip-path: inset(81% 0 18% 0);
+  }
+  100% {
+    clip-path: inset(17% 0 14% 0);
+  }
+}
+input {
+  width: 75%;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: black;
+  border: 1px solid lightGreen;
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  /* Hides the slider so that custom slider can be made */
+  width: 100%;
+  /* Specific width is required for Firefox. */
+  background: transparent;
+  /* Otherwise white in Chrome */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type="range"]:focus {
+  outline: none;
+  /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  border-left: 1px solid lightGreen;
+  border-right: 1px solid lightGreen;
+  height: 20px;
+  width: 16px;
+}
+
+.options {
+  opacity: 1;
+  transition: opacity 1s, transform 1s;
+  position: absolute;
+}
+.options--hide {
+  opacity: 0 !important;
+  transform: scale(0);
+}
+
+#labelSize {
+  margin-top: 50px;
+}
+
+.lose {
+  animation: lose 1s;
+}
+
+@keyframes lose {
+  0% {
+    color: lightGreen;
+    border-color: lightGreen;
+  }
+  20% {
+    color: #dc3333;
+    transform: scale(0.99);
+    border-color: #dc3333;
+    opacity: .9;
+  }
+  80% {
+    color: #dc3333;
+    transform: scale(0.99);
+    opacity: .9;
+    border-color: #dc3333;
+  }
+  100% {
+    color: lightGreen;
+    border-color: lightGreen;
+  }
+}
